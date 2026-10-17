@@ -46,12 +46,6 @@ struct Developer {
 
 ---
 
-### Featured Work
-
-- **[unmask](https://github.com/Beforov1337/unmask)** — Fast, lightweight CLI utility written in Rust to automatically unmask packages and resolve masked dependencies on Gentoo Linux.
-
----
-
 ### Commission a Project / Get in Touch
 
 Looking to build a high-performance system, a custom daemon, or optimize low-level software?

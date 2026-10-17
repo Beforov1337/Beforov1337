@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 540" width="1280" height="540">
   <defs>
     <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#040406"/>
@@ -30,10 +30,6 @@
       50% { r: 9px; opacity: 0.15; }
       100% { r: 4px; opacity: 0.8; }
     }
-    @keyframes text-glow {
-      0%, 100% { fill: #ffffff; }
-      50% { fill: #e4e4e7; }
-    }
     .cursor-blink {
       animation: blink 1s infinite;
     }
@@ -49,115 +45,116 @@
   </style>
 
   <!-- Deep Canvas -->
-  <rect width="1280" height="640" fill="url(#bg-grad)"/>
-  <rect width="1280" height="640" fill="url(#matrix-glow)"/>
+  <rect width="1280" height="540" fill="url(#bg-grad)"/>
+  <rect width="1280" height="540" fill="url(#matrix-glow)"/>
 
   <!-- Left Side: Code & Assembly Column Background -->
-  <rect x="0" y="0" width="460" height="640" fill="#040407"/>
+  <rect x="0" y="0" width="450" height="540" fill="#040407"/>
 
   <!-- Left Side: Rust & C Assembly Art -->
-  <g class="font-mono" font-size="11" fill="#4b4b55">
-    <text x="48" y="55" fill="#71717a" font-weight="600" letter-spacing="1">ASM DISASM // KERNEL PANIC DISPATCH</text>
-    <line x1="48" y1="68" x2="420" y2="68" stroke="#27272a" stroke-width="1"/>
+  <g class="font-mono" font-size="11.5" fill="#4b4b55">
+    <text x="44" y="48" fill="#71717a" font-weight="600" letter-spacing="1">ASM DISASM // KERNEL PANIC DISPATCH</text>
+    <line x1="44" y1="60" x2="410" y2="60" stroke="#27272a" stroke-width="1"/>
 
-    <text x="48" y="105"><tspan fill="#3f3f46">0x7FFF8000: </tspan><tspan fill="#a1a1aa" font-weight="600">mov    </tspan>%rsp,%rbp</text>
-    <text x="48" y="128"><tspan fill="#3f3f46">0x7FFF8007: </tspan><tspan fill="#a1a1aa" font-weight="600">lea    </tspan>rip(%rip),%rdi</text>
-    <text x="48" y="151"><tspan fill="#3f3f46">0x7FFF800E: </tspan><tspan fill="#a1a1aa" font-weight="600">callq  </tspan>kernel_init</text>
-    <text x="48" y="174"><tspan fill="#3f3f46">0x7FFF8013: </tspan><tspan fill="#a1a1aa" font-weight="600">test   </tspan>%eax,%eax</text>
-    <text x="48" y="197"><tspan fill="#3f3f46">0x7FFF8015: </tspan><tspan fill="#a1a1aa" font-weight="600">jne    </tspan>panic_routine</text>
+    <text x="44" y="94"><tspan fill="#3f3f46">0x7FFF8000: </tspan><tspan fill="#a1a1aa" font-weight="600">mov    </tspan>%rsp,%rbp</text>
+    <text x="44" y="117"><tspan fill="#3f3f46">0x7FFF8007: </tspan><tspan fill="#a1a1aa" font-weight="600">lea    </tspan>rip(%rip),%rdi</text>
+    <text x="44" y="140"><tspan fill="#3f3f46">0x7FFF800E: </tspan><tspan fill="#a1a1aa" font-weight="600">callq  </tspan>kernel_init</text>
+    <text x="44" y="163"><tspan fill="#3f3f46">0x7FFF8013: </tspan><tspan fill="#a1a1aa" font-weight="600">test   </tspan>%eax,%eax</text>
+    <text x="44" y="186"><tspan fill="#3f3f46">0x7FFF8015: </tspan><tspan fill="#a1a1aa" font-weight="600">jne    </tspan>panic_routine</text>
     
-    <text x="48" y="240" fill="#71717a">/* Zero-cost panic handler */</text>
-    <text x="48" y="265"><tspan fill="#e4e4e7">struct</tspan> TaskDescriptor {</text>
-    <text x="48" y="288">    pid: <tspan fill="#e4e4e7">u32</tspan>,</text>
-    <text x="48" y="311">    rip: <tspan fill="#e4e4e7">u64</tspan>, rsp: <tspan fill="#e4e4e7">u64</tspan>,</text>
-    <text x="48" y="334">    state: AtomicState,</text>
-    <text x="48" y="357">};</text>
+    <text x="44" y="226" fill="#71717a">/* Zero-cost panic handler */</text>
+    <text x="44" y="250"><tspan fill="#e4e4e7">struct</tspan> TaskDescriptor {</text>
+    <text x="44" y="272">    pid: <tspan fill="#e4e4e7">u32</tspan>,</text>
+    <text x="44" y="294">    rip: <tspan fill="#e4e4e7">u64</tspan>, rsp: <tspan fill="#e4e4e7">u64</tspan>,</text>
+    <text x="44" y="316">    state: AtomicState,</text>
+    <text x="44" y="338">};</text>
 
-    <text x="48" y="405"><tspan fill="#e4e4e7">impl</tspan> Drop <tspan fill="#e4e4e7">for</tspan> MemArena {</text>
-    <text x="48" y="428">    <tspan fill="#e4e4e7">fn</tspan> drop(&amp;<tspan fill="#e4e4e7">mut</tspan> self) {</text>
-    <text x="48" y="451">        self.guard.unprotect();</text>
-    <text x="48" y="474">    }</text>
-    <text x="48" y="497">}</text>
+    <text x="44" y="380"><tspan fill="#e4e4e7">impl</tspan> Drop <tspan fill="#e4e4e7">for</tspan> MemArena {</text>
+    <text x="44" y="402">    <tspan fill="#e4e4e7">fn</tspan> drop(&amp;<tspan fill="#e4e4e7">mut</tspan> self) {</text>
+    <text x="44" y="424">        self.guard.unprotect();</text>
+    <text x="44" y="446">    }</text>
+    <text x="44" y="468">}</text>
 
-    <text x="48" y="580" fill="#3f3f46" font-size="10">ARCH: x86_64-unknown-linux-gnu</text>
+    <text x="44" y="508" fill="#3f3f46" font-size="10">ARCH: x86_64-unknown-linux-gnu</text>
   </g>
 
   <!-- Vertical Divider with animated radar nodes -->
-  <line x1="460" y1="40" x2="460" y2="600" stroke="#27272a" stroke-width="1.5" stroke-dasharray="4 8"/>
-  <circle cx="460" cy="180" r="4" fill="#a1a1aa"/>
-  <circle cx="460" cy="320" r="5" fill="#ffffff"/>
-  <circle cx="460" cy="320" r="8" fill="none" stroke="#ffffff" stroke-width="1" class="radar-ring"/>
-  <circle cx="460" cy="460" r="4" fill="#a1a1aa"/>
+  <line x1="450" y1="30" x2="450" y2="510" stroke="#27272a" stroke-width="1.5" stroke-dasharray="4 8"/>
+  <circle cx="450" cy="140" r="4" fill="#a1a1aa"/>
+  <circle cx="450" cy="270" r="5" fill="#ffffff"/>
+  <circle cx="450" cy="270" r="9" fill="none" stroke="#ffffff" stroke-width="1" class="radar-ring"/>
+  <circle cx="450" cy="400" r="4" fill="#a1a1aa"/>
 
-  <!-- Right Side Main Identity Block -->
-  <g transform="translate(520, 70)">
+  <!-- Right Side Main Identity Block (Prominent, High-Contrast) -->
+  <g transform="translate(500, 36)">
     <!-- Top Meta -->
     <g class="font-mono">
-      <rect x="0" y="0" width="190" height="26" rx="4" fill="#141418" stroke="#27272a" stroke-width="1"/>
-      <circle cx="14" cy="13" r="6" fill="#22c55e" fill-opacity="0.25"/>
-      <circle cx="14" cy="13" r="3.5" fill="#22c55e" class="status-pulse"/>
-      <text x="26" y="17" fill="#e4e4e7" font-size="11" font-weight="600" letter-spacing="1">SESSION: ROOT // OK</text>
+      <rect x="0" y="0" width="200" height="28" rx="5" fill="#141418" stroke="#27272a" stroke-width="1"/>
+      <circle cx="16" cy="14" r="7" fill="#22c55e" fill-opacity="0.25"/>
+      <circle cx="16" cy="14" r="4" fill="#22c55e" class="status-pulse"/>
+      <text x="30" y="18" fill="#e4e4e7" font-size="11" font-weight="600" letter-spacing="1">SESSION: ROOT // OK</text>
 
-      <text x="680" y="17" text-anchor="end" fill="#52525b" font-size="11">github.com/Beforov1337</text>
+      <text x="730" y="18" text-anchor="end" fill="#71717a" font-size="12">github.com/Beforov1337</text>
     </g>
 
     <!-- Username / Big Header with animated cursor -->
-    <text x="0" y="105" class="font-mono" font-size="56" font-weight="800" fill="#ffffff" letter-spacing="-1">
+    <text x="0" y="105" class="font-mono" font-size="64" font-weight="800" fill="#ffffff" letter-spacing="-1.5">
       IsThatBeforov?<tspan fill="#71717a" class="cursor-blink">_</tspan>
     </text>
 
     <!-- Subtitle Spec -->
     <g transform="translate(0, 150)">
-      <text class="font-mono" fill="#e4e4e7" font-size="20" font-weight="700" letter-spacing="1.5">
+      <text class="font-mono" fill="#f4f4f5" font-size="22" font-weight="700" letter-spacing="1.5">
         &gt; RUST / C SYSTEMS DEVELOPER
       </text>
-      <text y="28" class="font-sans" fill="#8e8e99" font-size="14">
+      <text y="30" class="font-sans" fill="#a1a1aa" font-size="15">
         Specialized in high-performance engines, low-level daemons, and bare-metal architectures.
       </text>
     </g>
 
     <!-- Spec Metrics Table/Blocks -->
-    <g transform="translate(0, 230)">
+    <g transform="translate(0, 225)">
       <g transform="translate(0, 0)">
-        <rect width="210" height="64" rx="8" fill="#111115" stroke="#27272a" stroke-width="1"/>
-        <text x="16" y="24" class="font-mono" fill="#71717a" font-size="10" letter-spacing="1">PRIMARY TECH</text>
-        <text x="16" y="48" class="font-mono" fill="#ffffff" font-size="14" font-weight="700">Rust • C • x86 ASM</text>
+        <rect width="230" height="70" rx="10" fill="#111115" stroke="#27272a" stroke-width="1.2"/>
+        <text x="18" y="26" class="font-mono" fill="#71717a" font-size="11" letter-spacing="1">PRIMARY TECH</text>
+        <text x="18" y="52" class="font-mono" fill="#ffffff" font-size="16" font-weight="700">Rust • C • x86 ASM</text>
       </g>
-      <g transform="translate(230, 0)">
-        <rect width="210" height="64" rx="8" fill="#111115" stroke="#27272a" stroke-width="1"/>
-        <text x="16" y="24" class="font-mono" fill="#71717a" font-size="10" letter-spacing="1">SPECIALTY</text>
-        <text x="16" y="48" class="font-mono" fill="#ffffff" font-size="14" font-weight="700">Bare Metal &amp; Low-Lvl</text>
+      <g transform="translate(250, 0)">
+        <rect width="230" height="70" rx="10" fill="#111115" stroke="#27272a" stroke-width="1.2"/>
+        <text x="18" y="26" class="font-mono" fill="#71717a" font-size="11" letter-spacing="1">SPECIALTY</text>
+        <text x="18" y="52" class="font-mono" fill="#ffffff" font-size="16" font-weight="700">Bare Metal &amp; Low-Lvl</text>
       </g>
-      <g transform="translate(460, 0)">
-        <rect width="210" height="64" rx="8" fill="#111115" stroke="#27272a" stroke-width="1"/>
-        <text x="16" y="24" class="font-mono" fill="#71717a" font-size="10" letter-spacing="1">CONTRACTS</text>
-        <text x="16" y="48" class="font-mono" fill="#ffffff" font-size="14" font-weight="700">Available to Hire</text>
+      <g transform="translate(500, 0)">
+        <rect width="230" height="70" rx="10" fill="#111115" stroke="#27272a" stroke-width="1.2"/>
+        <text x="18" y="26" class="font-mono" fill="#71717a" font-size="11" letter-spacing="1">CONTRACTS</text>
+        <text x="18" y="52" class="font-mono" fill="#22c55e" font-size="16" font-weight="700">Available to Hire</text>
       </g>
     </g>
 
     <!-- CTA & Telegram Order Box -->
-    <g transform="translate(0, 350)">
-      <rect width="670" height="76" rx="12" fill="#141419" stroke="#3f3f46" stroke-width="1.2"/>
+    <g transform="translate(0, 335)">
+      <rect width="730" height="82" rx="14" fill="#141419" stroke="#3f3f46" stroke-width="1.5"/>
+      <rect x="2" y="2" width="726" height="78" rx="12" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
       
       <!-- Telegram SVG Icon -->
-      <g transform="translate(26, 21) scale(1.4)">
+      <g transform="translate(28, 23) scale(1.5)">
         <path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l-.313 4.674c.459 0 .661-.21.917-.46l2.203-2.14 4.58 3.385c.844.464 1.452.226 1.662-.785l3.003-14.15c.308-1.233-.472-1.793-1.282-1.426z" fill="#ffffff"/>
       </g>
 
-      <text x="82" y="32" class="font-sans" fill="#a1a1aa" font-size="12" font-weight="500">
+      <text x="88" y="34" class="font-sans" fill="#a1a1aa" font-size="13" font-weight="500">
         Commission a Project / Telegram Contact:
       </text>
-      <text x="82" y="56" class="font-mono" fill="#ffffff" font-size="18" font-weight="800" letter-spacing="0.5">
+      <text x="88" y="60" class="font-mono" fill="#ffffff" font-size="20" font-weight="800" letter-spacing="0.5">
         @kernelpanic_us
       </text>
 
-      <g transform="translate(510, 18)">
-        <rect width="135" height="40" rx="6" fill="#27272a" stroke="#52525b" stroke-width="1"/>
-        <text x="67" y="25" text-anchor="middle" class="font-mono" fill="#ffffff" font-size="12" font-weight="700">CONTACT ↗</text>
+      <g transform="translate(560, 20)">
+        <rect width="145" height="42" rx="8" fill="#27272a" stroke="#52525b" stroke-width="1"/>
+        <text x="72" y="26" text-anchor="middle" class="font-mono" fill="#ffffff" font-size="13" font-weight="700">CONTACT ↗</text>
       </g>
     </g>
   </g>
 
   <!-- Scanlines overlay -->
-  <rect width="1280" height="640" fill="url(#scanlines)" pointer-events="none"/>
+  <rect width="1280" height="540" fill="url(#scanlines)" pointer-events="none"/>
 </svg>
